@@ -26,6 +26,9 @@ contract ExampleTokenCrowdsale is Crowdsale, MintedCrowdsale, CappedCrowdsale{
 		tokensAvailable = _cap *_rate;
 	}
 
+	function getTokensLeft() view public returns (uint256){
+		return (tokensAvailable-tokensSold) / 1000000000000000000;
+	}
 
   function _preValidatePurchase(
     address _beneficiary,
